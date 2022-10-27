@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+
+    <style class="text/css">
+        #image-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            margin-top: 100px;
+            margin-bottom: 100px;
+            justify-content: space-around;
+            align-items: flex-start;
+        }
+
+        .image-wrapper {
+            margin: 5px;
+            padding: 5px;
+            padding: 20px;
+            borer-bottom: 1px solid #e9e9e9;
+            color: #686868;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div id="image-container">
+        <div id="form-wrapper">
+            <form class="form" method="POST">
+                {% csrf_token %}
+                <div style="flex: 6">
+                    <a class = "btn btn-dark my-2" href="{% url 'list' %}">Go Back</a>
+                    <h3 style="justify-content: space-around">Add new image:</h3>
+                    <input id="title" class="form-control my-2" type="text" name="title" placeholder="Title">
+                    <input id="albumId" class="form-control my-2" type="number" name="albumId" placeholder="Album Id">
+                    <input id="url" class="form-control my-2" type="url" name="url" placeholder="Url of image"
+                    >
+                </div>
+                <div style="flex: 1">
+                    <button  class="btn btn-outline-dark my-2" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

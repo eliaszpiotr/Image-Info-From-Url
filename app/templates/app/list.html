@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+
+    <style class="text/css">
+        #image-container {
+            max-width: 600px;
+            margin: 0 auto;
+            margin-top: 100px;
+            margin-bottom: 100px;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .image-wrapper {
+            margin: 5px;
+            padding: 5px;
+            padding: 20px;
+            borer-bottom: 1px solid #e9e9e9;
+            color: #686868;
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div id="image-container">
+        <div id="wrapper">
+            <div style="flex: 6">
+                <h3 style="justify-content: space-around">Storage:</h3>
+                <a href="{% url 'add' %}" class="btn btn-dark my-2">Add new record:</a>
+            </div>
+        </div>
+        <div class="list-wrapper">
+            {% for image in images %}
+            <div id="data-row-${i}" class="image-wrapper flex-wrapper">
+                <div style="flex: 7">
+                    <span class="title">ID: {{image.id}}</span>
+                </div>
+                <div style="flex: 7">
+                    <span class="title">Title: '{{image.title}}', Album ID: {{image.albumId}} </span>
+                </div>
+                <a href="{% url 'detail' image.id %}" class="btn btn-outline-dark edit btn-sm my-2 ">View details</a>
+            </div>
+            {% empty %}
+           <div class="image-wrapper">
+               <h3>No records found...</h3>
+           </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
